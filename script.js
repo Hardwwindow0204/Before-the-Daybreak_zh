@@ -437,7 +437,7 @@
         ],
         choices: [
             { text: "去花园", next: "ch_4" },
-            { text: "待在院子里", next: "e_1" },
+            { text: "待在院子里", next: "ch2_c3_4" },
             { text: "去图书馆", next: "ch_3" }
         ]
 
@@ -503,6 +503,22 @@
             { text: "顺时针走", next: "ch2_c4_5" }
         ]
 
+    },
+     ch2_c3_4: {
+        type: "content",
+        label: "第二章",
+        text: [
+            `你待在院子里，希望那些持枪男子会自行消失。
+    
+        但世界并非如此运转。
+    
+        三个持枪男子正朝图书馆走去，在昏暗的光线中发现了你。
+    
+        紧接着传来了枪声……`
+        ],
+        choices: [
+            { text: "继续", next: "e_1" }
+        ]
     },
     ch2_c4_1: {
         type: "content",
@@ -600,6 +616,24 @@
             }
         ]
     },
+     ch2_c5_1: {
+    type: "content",
+    label: "第二章",
+    text: [
+        `你走进了教室。里面空无一人。
+
+    完全空的——没有学生，没有老师，甚至没有尸体。
+
+    桌椅一片凌乱。
+
+    在教室前面，你勉强能看到白板上写着什么。在后面，架子上好像有什么东西。`
+    ],
+    choices: [
+        { text: "查看白板", next: "ch2_c6_1" },
+        { text: "查看后面的架子", next: "ch2_c6_3" },
+        { text: "躲在桌椅后面", next: "ch2_c7_1" }
+    ]
+},
     ch2_c5_2: {
         type: "content",
         label: "第二章",
@@ -624,6 +658,47 @@
 
 
     },
+     ch2_c6_1: {
+     type: "content",
+     label: "第二章",
+     image: "images/contents/kenbont.png",
+     title: "",
+     subtitle: "",
+     caption: "",
+     hint: "",
+     text: [
+         `靠近白板，你终于能看清上面的字了。
+
+     "肯邦" 科兹念出声来。
+
+     你立刻看到她的反应。她的身体绷紧了，几乎要瘫倒。
+
+     "你还好吗？" 你问道。
+
+     她坐下来，抬头看着你，脸色苍白。
+
+     她点了点头。"是的。我没事。"
+
+     "我曾经读到过，" 她说。"书上说肯邦是地球上最危险的恐怖组织。"
+
+     恐怖分子？
+
+     --------------------------------------------------
+     
+     脚步声越来越大，越来越近。你知道那个持枪男子就快到了。
+
+     你决定：
+     `
+     ],
+     choices: [
+         { text: "躲在中间，桌椅后面", next: "ch2_c7_1" },
+         { text: "躲在门边的角落里", next: "ch2_c7_2" },
+         { text: "躲在窗户下面，远离走廊的一侧", next: "ch2_c7_3" }
+     ]
+
+
+
+     },
     ch2_c6_2: {
         type: "content",
         label: "第二章",
@@ -695,6 +770,9 @@
 
 function showScene(sceneId) {
     const scene = scenes[sceneId];
+
+    const container = document.getElementById("game-container");
+    container.className = "game-container " + scene.type;
 
     document.getElementById("scene-label").innerText = scene.label || "";
     document.getElementById("scene-title").innerText = scene.title || "";
