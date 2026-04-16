@@ -845,6 +845,7 @@ function updateSceneImage(imagePath) {
     tempImg.src = imagePath;
 }
 
-updateSceneImage(scene.image);
+
 
 showScene("ch_1");
+updateSceneImage(scene.image);
